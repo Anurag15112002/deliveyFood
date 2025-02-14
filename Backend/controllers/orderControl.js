@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 const stripe=new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-    const frontend_url = process.env.FRONTEND_URL;
+    const frontend_url = "https://deliveyfood-user.onrender.com";
     try {
         // Create a new order in the database
         const newOrder = new orderModel({

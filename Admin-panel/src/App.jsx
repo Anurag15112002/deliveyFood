@@ -7,7 +7,7 @@ import Add from './Pages/Add/Add'
 import Order from './Pages/Order/Order'
 import { ToastContainer} from 'react-toastify';
 const App = () => {
-  const url = "http://localhost:3000";
+  const url = "https://deliveyfood-backend.onrender.com";
   return (
     <div>
       <ToastContainer/>

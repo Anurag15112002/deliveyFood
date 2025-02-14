@@ -3,7 +3,7 @@ export const StoreContext = createContext(null);
 import axios from 'axios';
 
 const StoreContextProvider =(props) =>{
-    const url="http://localhost:3000";
+    const url="https://deliveyfood-backend.onrender.com";
     const [token,setToken]=useState("");
     const [cartItems,setCartItems] =useState({});
     const [food_list,setFoodList]=useState([]);
