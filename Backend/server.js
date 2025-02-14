@@ -26,7 +26,12 @@ app.use(cors({
 }));
 
 // routes
-app.use('/images', express.static(path.join(__dirname, 'uploads')));
+app.use('/images', (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST");
+  next();
+}, express.static(path.join(__dirname, 'uploads')));
+
 
 app.use("/api/food" ,foodRouter);
 app.use("/api/user",userRouter);
