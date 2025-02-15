@@ -30,7 +30,7 @@ app.use('/images', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST");
   next();
-}, express.static('/mnt/data/uploads')); // Update to the location of persistent storage
+}, express.static(path.join(__dirname, 'uploads')));
 
 
 app.use("/api/food" ,foodRouter);
