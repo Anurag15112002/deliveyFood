@@ -27,10 +27,12 @@ app.use(cors({
 
 // routes
 app.use('/images', (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST");
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
   next();
 }, express.static(path.join(__dirname, 'uploads')));
+
 
 
 app.use("/api/food" ,foodRouter);
