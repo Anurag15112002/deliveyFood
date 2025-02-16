@@ -43,10 +43,10 @@ const MyOrder = () => {
                        <img src={assets.parcel_icon} alt="" />
                        <p>{order.items.map((item,index)=>{
                         if(index=== order.items.length-1){
-                            return item.name+"x"+item.quantity
+                            return item.name+" : "+item.quantity
                         }
                         else{
-                            return item.name+"x"+item.quantity+","
+                            return item.name+" : "+item.quantity+" ,"
                         }
                        })}</p>
                        <p>${order.amount}.00</p>

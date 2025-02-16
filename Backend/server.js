@@ -9,6 +9,7 @@ import 'dotenv/config.js'
 import userRouter from './routes/userRoutes.js';
 import cartRouter from './routes/cartRoutes.js';
 import orderRouter from './routes/orderRoutes.js';
+import  fileUpload from 'express-fileupload'
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -25,14 +26,12 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'token'],
 }));
 
-// routes
-app.use('/images', (req, res, next) => {
-  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-  res.setHeader('Pragma', 'no-cache');
-  res.setHeader('Expires', '0');
-  next();
-}, express.static(path.join(__dirname, 'uploads')));
 
+// routes
+
+app.use(fileUpload({
+  useTempFiles:true
+}))
 
 
 app.use("/api/food" ,foodRouter);
